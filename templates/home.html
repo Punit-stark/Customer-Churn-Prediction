@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Customer Churn Prediction</title>
+    <link rel="stylesheet" href="home.css">
+    <style>
+        body {
+            background: linear-gradient(to top, #09203f 0%, #537895 100%);            
+            /* font-family: Arial, sans-serif; */
+            
+        }
+        hr{
+            border: 2px solid black;
+        }
+        .form-container {
+            background-color: rgb(135, 62, 204);
+            padding: 20px;
+            margin: 2% auto;
+            width: 70%;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.2);
+        }
+        label {
+            color: white;
+            font-weight: bold;
+            margin-top: 10px;
+            display: block;
+        }
+        input[type="text"], input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border-radius: 5px;
+            border: 1px solid gold;
+            box-sizing: border-box;
+            margin: auto;
+        }
+        input[type="submit"] {
+            background-color: red;
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+        input[type="submit"]:hover {
+            background-color: darkred;
+        }
+        .result {
+            margin-top: 20px;
+            font-size: 20px;
+            text-align: center;
+            color: rgb(255, 255, 255);
+        }
+        .col1 {
+            float: left;      
+           width: 45%;
+            margin-right: 2px;
+        }
+        .col2 {
+            float: left;
+            margin-left: 2px;
+            width: 45%;
+        }
+        .form-container::after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+        button{
+            justify-content: center;
+            border-radius: 10px;
+            margin: 2%;
+            padding: 1%;
+            width: 87%;
+            background-color: aquamarine;
+        }
+        label{
+            color: rgb(49, 44, 44);
+        }
+        .churned {
+            color: rgba(167, 8, 8, 0.888);
+            font-size: 30px;
+        }
+        .continued {
+            color: rgba(10, 228, 10, 0.782);
+            font-size: 30px;
+        }
+    </style>
+</head>
+<body>
+    <h1 style="text-align: center;">Predicting Customer Churn in Telecom Services</h1>
+    <hr>
+    <div class="result">
+        {% if op1 %}
+        <div class="{% if op1 == 'This Customer is likely to be Churned!' %}churned{% else %}continued{% endif %}">
+            <p><b>{{ op1 }}</b></p>
+            <p style="color: black;"><b>{{ op2 }} %</b></p>
+        </div>
+        {% endif %}
+    </div>
+<form action="/" method="POST">
+    <div class="box">
+        <div>
+            <img src="bg.png" alt="">
+        </div>
+        <h2 style="text-align: center; color: white; text-decoration: underline;">CUSTOMER CHURN PREDICTION</h2>
+        <div class="form-container">
+        
+        
+            <div class="col1">
+            <label for="Dependents">Dependents:</label>
+            <input type="text" name="Dependents" id="Dependents" placeholder="Enter Dependents (Yes/No)">
+    
+            <label for="tenure">Tenure:</label>
+            <input type="number" name="tenure" id="tenure" placeholder="Enter Tenure (in months)">
+    
+            <label for="OnlineSecurity">Online Security:</label>
+            <input type="text" name="OnlineSecurity" id="OnlineSecurity" placeholder="Enter Online Security (Yes/No)">
+    
+            <label for="OnlineBackup">Online Backup:</label>
+            <input type="text" name="OnlineBackup" id="OnlineBackup" placeholder="Enter Online Backup (Yes/No)">
+    
+            <label for="DeviceProtection">Device Protection:</label>
+            <input type="text" name="DeviceProtection" id="DeviceProtection" placeholder="Enter Device Protection (Yes/No)">
+    
+            </div>
+    
+            <div class="col2">
+                <label for="TechSupport">Tech Support:</label>
+                <input type="text" name="TechSupport" id="TechSupport" placeholder="Enter Tech Support (Yes/No)">
+        
+                <label for="Contract">Contract:</label>
+                <input type="text" name="Contract" id="Contract" placeholder="Enter Contract Type (Month-to-Month, One Year, Two Year)">
+        
+                <label for="PaperlessBilling">Paperless Billing:</label>
+                <input type="text" name="PaperlessBilling" id="PaperlessBilling" placeholder="Enter Paperless Billing (Yes/No)">
+        
+                <label for="MonthlyCharges">Monthly Charges:</label>
+                <input type="text" name="MonthlyCharges" id="MonthlyCharges" placeholder="Enter Monthly Charges">
+        
+                <label for="TotalCharges">Total Charges:</label>
+                <input type="text" name="TotalCharges" id="TotalCharges" placeholder="Enter Total Charges">
+            </div>
+            <button type="submit" name="submit"><b>SUBMIT </b></button>
+    </div>
+
+    </div>
+</form>
+
+</body>
+</html>
